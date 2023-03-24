@@ -1,9 +1,5 @@
 <template>
-    <div 
-        class="text-3xl font-bold underline"
-        :class="{ 'blur-sm': mobileNavOpen }">
-        Hello world! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    </div>
+    <RouterView />
     <NavMobile 
         v-if="isMobileDevice"
         :mobileNavOpen="mobileNavOpen"
