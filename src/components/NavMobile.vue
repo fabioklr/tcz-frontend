@@ -11,26 +11,36 @@
             v-else
             @click="updateMobileNav"
             class="fixed inset-0 bg-transparent flex justify-center">
-            <div @click.stop="" class="h-screen w-[60vw] blur-none bg-blue shadow-lg shadow-blue flex flex-col justify-center">
-                <div class="text-center text-2xl font-bold">Menu</div>
-                <div class="text-center text-xl font-bold">Home</div>
-                <div class="text-center text-xl font-bold">About</div>
-                <div class="text-center text-xl font-bold">Contact</div>
+            <div 
+                @click.stop=""
+                class="h-screen w-[60vw] blur-none bg-blue shadow-lg shadow-blue flex flex-col text-center font-bold">
+                <div @click="updateMobileNav(); translateSite()">{{ lang }}</div>
+                <div class="text-center text-xl font-bold">Swim</div>
+                <div class="text-center text-xl font-bold">Bike</div>
+                <div class="text-center text-xl font-bold">Run</div>
+                <div class="text-center text-xl font-bold">Probetraining</div>
+                <div class="text-center text-xl font-bold">Mitglied werden</div>
+                <div class="text-center text-xl font-bold">Login</div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 const props = defineProps({
     mobileNavOpen: {
         type: Boolean,
         required: true
     }
 })
+const lang = ref('English')
 
 const emits = defineEmits(['update-mobile-nav-open'])
 const updateMobileNav = () => {
     emits('update-mobile-nav-open', !props.mobileNavOpen);
 }
+// Translate the site to English with DeepL or fallback to the German default
+
 </script>
