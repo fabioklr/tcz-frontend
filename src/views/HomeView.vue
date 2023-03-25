@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="isMobile" class="flex justify-center p-2">
+        <div class="flex justify-center p-2">
             <RouterLink :to="{name: 'home'}">
                 <img 
                     src="/media/logo.webp" 

@@ -13,7 +13,7 @@ import NavMobile from '@/components/NavMobile.vue'
 const isMobileDevice = ref(true)
 const mobileNavOpen = ref(false)
 // Watch the viewport size and update the isMobileDevice variable correspondingly at 768px
-watchEffect(() => {
+window.addEventListener('resize', () => {
     if (window.innerWidth < 768) {
         isMobileDevice.value = true
     } else {
