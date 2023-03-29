@@ -8,7 +8,7 @@
                     class="h-24">
             </RouterLink>
         </div>
-        <div>Top 3 posts carousel</div>
+        <PostsCarousel />
         <div>'Alle' claims</div>
         <div>Events</div>
         <div>Erfahrungsberichte</div>
@@ -18,5 +18,5 @@
 </template>
 
 <script setup>
-
+import PostsCarousel from '@/components/PostsCarousel.vue'
 </script>
