@@ -11,7 +11,7 @@ import { ref, onMounted } from 'vue'
 import NavMobile from '@/components/NavMobile.vue'
 import { usePostsStore } from './stores/posts';
 
-const isMobileDevice = ref(true)
+const isMobileDevice = ref(false)
 const mobileNavOpen = ref(false)
 const postsStore = usePostsStore()
 // Watch the viewport size and update the isMobileDevice variable correspondingly at 768px
