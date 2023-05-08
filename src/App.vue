@@ -26,5 +26,9 @@ window.addEventListener('resize', () => {
 onMounted(() => {
     // Get posts from Strapi
     postsStore.fetchPosts()
+    // Set isMobileDevice variable to true if the viewport is smaller than 768px
+    if (window.innerWidth < 768) {
+        isMobileDevice.value = true
+    }
 })
 </script>

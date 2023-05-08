@@ -36,7 +36,7 @@
         </div>
         <!-- The four most recent posts in the Events category -->
         <div class="flex flex-col justify-center items-center mt-20">
-            <div class="bg-blue shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">Events</div>
+            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">Events</div>
             <PostCard 
                 v-for="post in eventsPosts.slice(0, 4)"
                 :post="post"
@@ -45,7 +45,7 @@
         </div>
         <!-- The four most recent posts in the Erfahrungsberichte category -->
         <div class="flex flex-col justify-center items-center mt-20">
-            <div class="bg-blue shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">Erfahrungsberichte</div>
+            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-3/5 flex justify-center items-center text-white font-bold text-xl">{{ $t('home.exp') }}</div>
             <PostCard 
                 v-for="post in erfahrungsberichtePosts.slice(0, 4)"
                 :post="post"
@@ -54,16 +54,13 @@
         </div>
         <!-- The four most recent posts in the News category -->
         <div class="flex flex-col justify-center items-center mt-20">
-            <div class="bg-blue shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">News</div>
+            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">News</div>
             <PostCard 
                 v-for="post in newsPosts.slice(0, 4)"
                 :post="post"
                 :backendUrl="backendUrl"
                 :defaultImgLocation="defaultImgLocation" />
-        </div>      
-        <div>Erfahrungsberichte</div>
-        <div>News</div>
-        <div>Trainingsübersicht</div>
+        </div>
     </div>
 </template>
 
@@ -84,17 +81,12 @@ const defaultImgLocation = '/uploads/fitsum_admasu_o_Gv9x_Il7_Dk_Y_unsplash_scal
 
 // Get all posts in the category 'Events'
 const eventsPosts = computed(() => {
-    return posts.value.filter(post => post.attributes.category_1 === 'Event' || post.attributes.category_2 === 'Event' || post.attributes.category_3 === 'Event')
+    return posts.value.filter(post => post.attributes.category_1 === 'Event')
 });
 const erfahrungsberichtePosts = computed(() => {
-    return posts.value.filter(post => (post.attributes.category_1 === 'Erfahrungsbericht' || 
-                                        post.attributes.category_2 === 'Erfahrungsbericht' || 
-                                        post.attributes.category_3 === 'Erfahrungsbericht'))
+    return posts.value.filter(post => post.attributes.category_1 === 'Erfahrungsbericht')
 });
 const newsPosts = computed(() => {
-    return posts.value.filter(post => (post.attributes.category_1 === 'News' || 
-                                post.attributes.category_2 === 'News' || 
-                                post.attributes.category_3 === 'News') &&
-                                post !== eventsPosts && post !== erfahrungsberichtePosts)
+    return posts.value.filter(post => post.attributes.category_1 === 'News')
 });
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full h-80 rounded-lg cursor-pointer shadow-lg">
+    <div class="flex flex-col w-full h-80 rounded-lg cursor-pointer shadow-lg m-4">
         <img
             v-if="post.attributes.images.data != null" 
             :src="`${backendUrl}${post.attributes.images.data[0].attributes.url}`"
