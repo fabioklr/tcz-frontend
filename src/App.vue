@@ -1,7 +1,7 @@
 <template>
     <RouterView />
     <NavMobile 
-        v-if="isMobileDevice"
+        v-if="isMobile"
         :mobileNavOpen="mobileNavOpen"
         @update-mobile-nav-open="mobileNavOpen = $event" />
 </template>
@@ -9,22 +9,20 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import NavMobile from '@/components/NavMobile.vue'
+import { storeToRefs } from 'pinia';
 import { usePostsStore } from './stores/posts';
+import { useHelpersStore } from './stores/helpers';
 
-const isMobileDevice = ref(false)
 const mobileNavOpen = ref(false)
 const postsStore = usePostsStore()
-// Watch the viewport size and update the isMobileDevice variable correspondingly at 768px
-window.addEventListener('resize', () => {
-    if (window.innerWidth < 768) {
-        isMobileDevice.value = true
-    } else {
-        isMobileDevice.value = false
-    }
-})
+const helpersStore = useHelpersStore()
+const { isMobile } = storeToRefs(helpersStore)
+console.log(isMobile)
 
 onMounted(() => {
     // Get posts from Strapi
     postsStore.fetchPosts()
+    // Check if the device is a mobile device
+    helpersStore.checkIfMobile()
 })
 </script>

@@ -31,8 +31,11 @@
                 v-show="currentSlide === index + 1"
                 class="absolute inset-x-0 bottom-0 h-1/2 flex justify-center items-center">
                 <div class="bg-blue bg-opacity-90 transform skew-x-[-10deg] h-1/2 w-3/4 flex items-center justify-center">
-                    <p class="text-center text-white text-md font-bold">
+                    <p v-if="locale === 'de'" class="text-center text-white text-md font-bold">
                         {{ post.attributes.title }}
+                    </p>
+                    <p v-else class="text-center text-white text-md font-bold">
+                        {{ post.attributes.localizations.data[0].attributes.title }}
                     </p>
                 </div>
             </div>
@@ -61,6 +64,7 @@
 
 <script setup>
 import { onUnmounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 defineProps({
     posts: Array,
@@ -69,6 +73,7 @@ defineProps({
 })
 
 const currentSlide = ref(1)
+const { locale } = useI18n()
 
 const nextSlide = () => {
     if (currentSlide.value === 3) {
