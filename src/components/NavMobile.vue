@@ -29,10 +29,18 @@
                     <div class="my-1">Log in</div>
                 </div>
                 <div class="flex-auto grid grid-cols-2 gap-2 justify-items-center pb-6">
-                    <i class="fa-brands fa-square-facebook text-4xl text-center"></i>
-                    <i class="fa-brands fa-square-instagram text-4xl text-center"></i>
-                    <i class="fa-brands fa-linkedin text-4xl text-center"></i>
-                    <div class="text-xl text-center">Signal Chat</div>
+                    <a href="https://www.facebook.com/groups/triathlonclubzh/discussion/preview">
+                        <i class="fa-brands fa-square-facebook text-4xl text-center"></i>
+                    </a>
+                    <a href="https://www.instagram.com/triclubzurich/">
+                        <i class="fa-brands fa-square-instagram text-4xl text-center"></i>
+                    </a>
+                    <a href="">
+                        <img src="/media/spond_logo.webp" alt="Spond logo" class="h-10 w-10">
+                    </a>
+                    <a href="https://signal.group/#CjQKIEFoQTFW-31k3rN-tZY48PlVIx_dSkqjTU2qJt-Xt7YtEhDWb4nDvt0pM_QhuiahqNSo">
+                        <img src="/media/signal_logo.webp" alt="Signal logo" class="h-10 w-10">
+                    </a>               
                 </div>
             </div>
         </div>

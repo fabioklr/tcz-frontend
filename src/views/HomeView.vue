@@ -36,7 +36,7 @@
         </div>
         <!-- The four most recent posts in the Events category -->
         <div class="flex flex-col justify-center items-center mt-20">
-            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">Events</div>
+            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-3/4 flex justify-center items-center text-white font-bold text-2xl">Events</div>
             <PostCard 
                 v-for="post in eventsPosts.slice(0, 4)"
                 :post="post"
@@ -45,7 +45,7 @@
         </div>
         <!-- The four most recent posts in the Erfahrungsberichte category -->
         <div class="flex flex-col justify-center items-center mt-20">
-            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-3/5 flex justify-center items-center text-white font-bold text-xl">{{ $t('home.exp') }}</div>
+            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-3/4 flex justify-center items-center text-white font-bold text-2xl">{{ $t('home.exp') }}</div>
             <PostCard 
                 v-for="post in erfahrungsberichtePosts.slice(0, 4)"
                 :post="post"
@@ -54,7 +54,7 @@
         </div>
         <!-- The four most recent posts in the News category -->
         <div class="flex flex-col justify-center items-center mt-20">
-            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">News</div>
+            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-3/4 flex justify-center items-center text-white font-bold text-2xl">News</div>
             <PostCard 
                 v-for="post in newsPosts.slice(0, 4)"
                 :post="post"
@@ -63,15 +63,45 @@
         </div>
         <!-- An overview of all of the TCZ trainings -->
         <div class="flex flex-col justify-center items-center mt-20">
-            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-1/2 flex justify-center items-center text-white font-bold text-xl">{{ $t('training_overview.title') }}</div>
+            <div class="bg-blue mb-4 shadow shadow-blue transform skew-x-[-10deg] h-16 w-3/4 flex justify-center items-center text-white font-bold text-2xl">{{ $t('training_overview.title') }}</div>
             <div class="flex flex-col items-center mt-10">
                 <img 
                     src="/media/logo_tcz_swim.webp"
                     alt="Swim Logo"
-                    class="w-1/6">
-                <div class="">{{ $t('training_overview.swim_title') }}</div>
-
+                    class="w-8 h-16">
+                <div class="font-bold text-2xl my-4">{{ $t('training_overview.swim_title') }}</div>
+                <div class="text-xl text-center font-bold">{{ $t('training_overview.swim_1_time') }}</div>
+                <div class="text-xl text-center">{{ $t('training_overview.swim_1_description') }}</div>
+                <div class="text-xl text-center font-bold mt-4">{{ $t('training_overview.swim_2_time') }}</div>
+                <div class="text-xl text-center">{{ $t('training_overview.swim_2_description') }}</div>
+                <div class="text-xl text-center font-bold mt-4">{{ $t('training_overview.swim_3_time') }}</div>
+                <div class="text-xl text-center">{{ $t('training_overview.swim_3_description') }}</div>
             </div>
+            <div class="flex flex-col items-center mt-10">
+                <img 
+                    src="/media/logo_tcz_bike.webp"
+                    alt="Bike Logo"
+                    class="w-8 h-16">
+                <div class="font-bold text-2xl my-4">{{ $t('training_overview.bike_title') }}</div>
+                <div class="text-xl text-center">{{ $t('training_overview.bike_description') }}</div>
+            </div>
+            <div class="flex flex-col items-center mt-10">
+                <img 
+                    src="/media/logo_tcz_run.webp"
+                    alt="Run Logo"
+                    class="w-8 h-16">
+                <div class="font-bold text-2xl my-4">{{ $t('training_overview.run_title') }}</div>
+                <div class="text-xl text-center font-bold">{{ $t('training_overview.run_1_time') }}</div>
+                <div class="text-xl text-center">{{ $t('training_overview.run_1_description') }}</div>
+                <div class="text-xl text-center font-bold mt-4">{{ $t('training_overview.run_2_time') }}</div>
+                <div class="text-xl text-center">{{ $t('training_overview.run_2_description') }}</div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="flex flex-col justify-center items-center mt-20 bg-light-grey">
+            <div class="mt-4">Triathlon Club Zürich</div>
+            <div class="mt-4">info@tcz.ch</div>
+            <div class="my-4">{{ $t('home.president') }}</div>
         </div>
     </div>
 </template>
