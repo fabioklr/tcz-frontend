@@ -9,7 +9,7 @@
                 leave-to-class="opacity-0"
                 enter-to-class="opacity-100"
                 leave-from-class="opacity-100">
-                <div v-show="currentSlide === index + 1">
+                <div v-show="currentSlide === index + 1" class="cursor-pointer">
                     <img
                         v-if="post.attributes.images.data != null" 
                         :src="`${backendUrl}${post.attributes.images.data[0].attributes.url}`"
@@ -30,7 +30,7 @@
             <div
                 v-show="currentSlide === index + 1"
                 class="absolute inset-x-0 bottom-0 h-1/2 flex justify-center items-center">
-                <div class="bg-blue bg-opacity-90 transform skew-x-[-10deg] h-1/2 w-3/4 flex items-center justify-center">
+                <div @click="openPost(post.id)" class="bg-blue bg-opacity-90 transform skew-x-[-10deg] h-1/2 w-3/4 flex items-center justify-center z-20">
                     <p v-if="locale === 'de'" class="text-center text-white text-md font-bold">
                         {{ post.attributes.title }}
                     </p>
@@ -65,6 +65,7 @@
 <script setup>
 import { onUnmounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 
 defineProps({
     posts: Array,
@@ -74,6 +75,7 @@ defineProps({
 
 const currentSlide = ref(1)
 const { locale } = useI18n()
+const router = useRouter()
 
 const nextSlide = () => {
     if (currentSlide.value === 3) {
@@ -94,6 +96,10 @@ const prevSlide = () => {
 const interval = setInterval(() => {
     nextSlide()
 }, 5000)
+
+const openPost = (id) => {
+    router.push({ name: 'post', params: { id: id } })
+}
 
 onUnmounted(() => {
     clearInterval(interval)

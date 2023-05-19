@@ -1,14 +1,5 @@
 <template>
     <div class="p-2 mb-20">
-        <!-- Logo with link to home -->
-        <div v-if="isMobile" class="flex justify-center">
-            <RouterLink :to="{name: 'home'}">
-                <img 
-                    src="/media/logo.webp" 
-                    alt="Logo"
-                    class="h-24">
-            </RouterLink>
-        </div>
         <!-- A carousel showing the three most recent posts across categories. -->
         <div class="mt-6">
             <PostsCarousel 
@@ -123,9 +114,8 @@ defineProps({
 
 const postsStore = usePostsStore()
 const { posts } = storeToRefs(postsStore)
-const { isMobile } = storeToRefs(useHelpersStore())
-const backendUrl = 'https://docker119415-tcz-backend.jcloud.ik-server.com'
-const defaultImgLocation = '/uploads/fitsum_admasu_o_Gv9x_Il7_Dk_Y_unsplash_scaled_95f7854ece.jpg'
+const helpersStore = useHelpersStore()
+const { backendUrl, defaultImgLocation } = storeToRefs(helpersStore)
 
 // Get all posts in the category 'Events'
 const eventsPosts = computed(() => {

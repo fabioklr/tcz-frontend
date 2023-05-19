@@ -35,6 +35,7 @@ export const usePostsStore = defineStore('posts', {
                 }
             });
             this.posts = res.data;
+            console.log(this.posts);
         }
     }
 });

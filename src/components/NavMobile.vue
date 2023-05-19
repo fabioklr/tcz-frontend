@@ -1,8 +1,8 @@
 <template>
-    <div class="text-white z-10">
+    <div class="text-white">
         <!-- Sticky mobile menu at bottom center of viewport -->
-        <div v-if="!mobileNavOpen" class="fixed bottom-0 h-[7vh] w-full flex justify-center">
-            <div @click="updateMobileNav" class="bg-blue h-full w-1/4 flex justify-center shadow-lg shadow-blue">
+        <div v-if="!mobileNavOpen" class="fixed bottom-0 h-[7vh] w-full flex justify-center z-10">
+            <div @click="updateMobileNav" class="bg-blue w-1/4 flex justify-center shadow-lg shadow-blue">
                 <div class="my-auto text-2xl fa-sharp fa-solid fa-bars"></div>
             </div>
         </div>
@@ -10,7 +10,7 @@
         <div 
             v-else
             @click="updateMobileNav"
-            class="fixed inset-0 bg-transparent flex justify-center">
+            class="fixed inset-0 bg-transparent flex justify-center z-30">
             <div 
                 @click.stop=""
                 class="h-screen w-[60vw] blur-none bg-blue shadow-lg shadow-blue flex flex-col">
@@ -26,7 +26,7 @@
                 <div class="flex-auto flex flex-col text-center text-xl">
                     <div class="my-1">{{ $t('nav.trial')}}</div>
                     <div class="my-1">{{ $t('nav.signup') }}</div>
-                    <div class="my-1">Log in</div>
+                    <router-link :to="{name: 'login'}" class="my-1">Log in</router-link>
                 </div>
                 <div class="flex-auto grid grid-cols-2 gap-2 justify-items-center pb-6">
                     <a href="https://www.facebook.com/groups/triathlonclubzh/discussion/preview">

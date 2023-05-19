@@ -1,9 +1,17 @@
 <template>
-    <RouterView />
-    <NavMobile 
-        v-if="isMobile"
-        :mobileNavOpen="mobileNavOpen"
-        @update-mobile-nav-open="mobileNavOpen = $event" />
+    <div>
+        <!-- Logo with link to home -->
+        <div v-if="isMobile" class="flex justify-center p-2">
+                <router-link :to="{name: 'home'}">
+                    <img src="/media/logo.webp" alt="Logo" class="h-24">
+                </router-link>
+            </div>
+        <RouterView />
+        <NavMobile 
+            v-if="isMobile"
+            :mobileNavOpen="mobileNavOpen"
+            @update-mobile-nav-open="mobileNavOpen = $event" />
+    </div>
 </template>
 
 <script setup>
